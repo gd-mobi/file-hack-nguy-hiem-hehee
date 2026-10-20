@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thiệp Chúc Mừng 20/10</title>
+    <title>Thiệp Chúc Mừng 20/10 - Phương Thảo</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -149,7 +149,7 @@
 
         .letter-recipient {
             font-family: 'Dancing Script', cursive;
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             color: #be123c;
             margin-bottom: 30px;
             font-weight: 700;
@@ -211,23 +211,32 @@
         .row-photo {
             width: 100%;
             height: 130px;
-            object-fit: cover;
+            object-fit: contain;
             border-radius: 2px;
             display: block;
         }
 
-        /* Signature */
-        .signature-container {
-            text-align: right;
-            margin-top: 25px;
+        /* Bottom Section (Extra message & Signature) */
+        .bottom-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 35px;
             padding-top: 15px;
+        }
+
+        .extra-love-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #e11d48;
+            font-weight: 700;
         }
 
         .signature-text {
             font-family: 'Great Vibes', cursive;
-            font-size: 2.6rem;
+            font-size: 2.8rem;
             color: #be123c;
-            display: inline-block;
+            text-align: right;
         }
 
         /* LIGHTBOX MODAL */
@@ -249,101 +258,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        /* FLOATING EDIT BUTTON */
-        .btn-edit-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #be123c;
-            color: white;
-            border: none;
-            padding: 10px 18px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(190, 18, 60, 0.3);
-            opacity: 0.6;
-            transition: all 0.3s ease;
-            z-index: 90;
-        }
-
-        .btn-edit-float:hover {
-            opacity: 1;
-            transform: scale(1.05);
-        }
-
-        /* EDITOR MODAL */
-        .modal-editor {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.5);
-            z-index: 101;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .editor-content {
-            background: white;
-            padding: 25px;
-            border-radius: 16px;
-            width: 100%;
-            max-width: 550px;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-
-        .editor-content h3 {
-            margin-bottom: 15px;
-            color: #be123c;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-            color: #475569;
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 8px 12px;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            font-family: inherit;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            height: 60px;
-        }
-
-        .btn-action {
-            background: #be123c;
-            color: white;
-            border: none;
-            padding: 10px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 700;
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        .btn-export {
-            background: #059669;
-            margin-top: 8px;
-        }
-
         /* RESPONSIVE DESIGN */
         @media (max-width: 580px) {
             #page-2 {
@@ -360,8 +274,10 @@
                 width: 160px;
             }
 
-            .signature-container {
-                text-align: center;
+            .bottom-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
             }
         }
     </style>
@@ -379,92 +295,49 @@
 
     <!-- TRANG 2: NỘI DUNG LÁ THƯ -->
     <div id="page-2">
-        <div class="letter-recipient" id="disp-recipient">To ➔ Người Phụ Nữ Tuyệt Vời</div>
+        <div class="letter-recipient">To ➔ PhuongThao</div>
 
         <!-- HÀNG 1 -->
         <div class="row-item">
-            <div class="row-text" id="disp-msg1">
-                Chúc bạn luôn giữ trọn nụ cười rạng rỡ và niềm vui ngập tràn trong từng khoảnh khắc của cuộc sống.
+            <div class="row-text">
+                Chúc em ngày 20/10 này luôn vui vẻ và tràn đầy niềm vui và hạnh phúc nhaa =>
             </div>
-            <div class="row-photo-wrap" onclick="viewPhoto(document.getElementById('disp-img1').src)">
-                <img id="disp-img1" class="row-photo" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=80" alt="Ảnh 1">
+            <div class="row-photo-wrap" onclick="viewPhoto(document.getElementById('img1').src)">
+                <img id="img1" class="row-photo" src="https://i.ibb.co/3yk56q0/elysia.png" alt="Castorice Sticker">
             </div>
         </div>
 
         <!-- HÀNG 2 -->
         <div class="row-item">
-            <div class="row-text" id="disp-msg2">
-                Mong rằng mỗi ngày mới trôi qua đều mang đến cho bạn những điều ngọt ngào, may mắn và bình yên nhất.
+            <div class="row-text">
+                Không chỉ mỗi ngày hôm nay mà mỗi ngày sẽ là mỗi niềm vui và ngập tràn cảm xúc với những khoảnh khắc trong cuộc sống!!!
             </div>
-            <div class="row-photo-wrap" onclick="viewPhoto(document.getElementById('disp-img2').src)">
-                <img id="disp-img2" class="row-photo" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80" alt="Ảnh 2">
+            <div class="row-photo-wrap" onclick="viewPhoto(document.getElementById('img2').src)">
+                <img id="img2" class="row-photo" src="https://i.ibb.co/3N370wW/raiden.png" alt="Raiden Shogun Sticker">
             </div>
         </div>
 
         <!-- HÀNG 3 -->
         <div class="row-item">
-            <div class="row-text" id="disp-msg3">
-                Cảm ơn bạn đã luôn xuất hiện và làm cho thế giới xung quanh trở nên thật rực rỡ và xinh đẹp!
+            <div class="row-text">
+                Tâm sự mỏng:Anh trước đó đã quen với các đối xử như với 1 người em nên giờ là ni cảm giác thấy cứ có chút gì gì đấy rất lạ =))).<br><br>
+                Anh sẽ cố gắng ntn đó để có thể trở thành 1 bạn trai tốt =]
             </div>
-            <div class="row-photo-wrap" onclick="viewPhoto(document.getElementById('disp-img3').src)">
-                <img id="disp-img3" class="row-photo" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=500&q=80" alt="Ảnh 3">
+            <div class="row-photo-wrap" onclick="viewPhoto(document.getElementById('img3').src)">
+                <img id="img3" class="row-photo" src="https://i.ibb.co/L8m253V/boy.png" alt="Phainon Sticker">
             </div>
         </div>
 
-        <!-- CHỮ KÝ -->
-        <div class="signature-container">
-            <div class="signature-text" id="disp-signature">Your Signature</div>
+        <!-- PHẦN DƯỚI: THÔNG ĐIỆP BỔ SUNG & CHỮ KÝ -->
+        <div class="bottom-container">
+            <div class="extra-love-text">Yeu PhwThao &lt;3</div>
+            <div class="signature-text">DaiThang</div>
         </div>
     </div>
 
-    <!-- LIGHTBOX XEM ẢNH -->
+    <!-- LIGHTBOX XEM ẢNH PHÓNG TO -->
     <div class="lightbox" id="lightbox" onclick="this.style.display='none'">
         <img id="lightbox-img" src="" alt="Zoom Photo">
-    </div>
-
-    <!-- NÚT SỬA NỘI DUNG -->
-    <button class="btn-edit-float" onclick="openEditor()">Sửa nội dung</button>
-
-    <!-- FORM CHỈNH SỬA & XUẤT FILE -->
-    <div class="modal-editor" id="modal-editor">
-        <div class="editor-content">
-            <h3>Tùy Chỉnh Nội Dung Thiệp</h3>
-            
-            <div class="form-group">
-                <label>Tên Người Nhận (To ➔ ...)</label>
-                <input type="text" id="inp-recipient" value="Người Phụ Nữ Tuyệt Vời">
-            </div>
-
-            <div class="form-group">
-                <label>Lời nhắn 1</label>
-                <textarea id="inp-msg1">Chúc bạn luôn giữ trọn nụ cười rạng rỡ và niềm vui ngập tràn trong từng khoảnh khắc của cuộc sống.</textarea>
-                <label style="margin-top:4px;">Ảnh 1</label>
-                <input type="file" accept="image/*" onchange="handleImageUpload(this, 'disp-img1')">
-            </div>
-
-            <div class="form-group">
-                <label>Lời nhắn 2</label>
-                <textarea id="inp-msg2">Mong rằng mỗi ngày mới trôi qua đều mang đến cho bạn những điều ngọt ngào, may mắn và bình yên nhất.</textarea>
-                <label style="margin-top:4px;">Ảnh 2</label>
-                <input type="file" accept="image/*" onchange="handleImageUpload(this, 'disp-img2')">
-            </div>
-
-            <div class="form-group">
-                <label>Lời nhắn 3</label>
-                <textarea id="inp-msg3">Cảm ơn bạn đã luôn xuất hiện và làm cho thế giới xung quanh trở nên thật rực rỡ và xinh đẹp!</textarea>
-                <label style="margin-top:4px;">Ảnh 3</label>
-                <input type="file" accept="image/*" onchange="handleImageUpload(this, 'disp-img3')">
-            </div>
-
-            <div class="form-group">
-                <label>Chữ ký người gửi</label>
-                <input type="text" id="inp-signature" value="Your Signature">
-            </div>
-
-            <button class="btn-action" onclick="applyChanges()">Áp Dụng Thay Đổi</button>
-            <button class="btn-action btn-export" onclick="exportHTML()">Tải File HTML Hoàn Chỉnh</button>
-            <button class="btn-action" style="background:#64748b; margin-top:6px;" onclick="closeEditor()">Đóng</button>
-        </div>
     </div>
 
     <script>
@@ -479,55 +352,6 @@
         function viewPhoto(src) {
             document.getElementById('lightbox-img').src = src;
             document.getElementById('lightbox').style.display = 'flex';
-        }
-
-        // Mở / Đóng bảng chỉnh sửa
-        function openEditor() {
-            document.getElementById('modal-editor').style.display = 'flex';
-        }
-
-        function closeEditor() {
-            document.getElementById('modal-editor').style.display = 'none';
-        }
-
-        // Đọc file ảnh chuyển thành Base64
-        function handleImageUpload(input, targetImgId) {
-            if (input.files && input.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById(targetImgId).src = e.target.result;
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        // Áp dụng nội dung vừa nhập vào giao diện
-        function applyChanges() {
-            document.getElementById('disp-recipient').innerText = "To ➔ " + document.getElementById('inp-recipient').value;
-            document.getElementById('disp-msg1').innerText = document.getElementById('inp-msg1').value;
-            document.getElementById('disp-msg2').innerText = document.getElementById('inp-msg2').value;
-            document.getElementById('disp-msg3').innerText = document.getElementById('inp-msg3').value;
-            document.getElementById('disp-signature').innerText = document.getElementById('inp-signature').value;
-            closeEditor();
-        }
-
-        // Xuất file HTML hoàn chỉnh
-        function exportHTML() {
-            applyChanges();
-            
-            // Xóa nút sửa nội dung và modal trước khi xuất HTML
-            const docClone = document.documentElement.cloneNode(true);
-            const btnEdit = docClone.querySelector('.btn-edit-float');
-            const modalEdit = docClone.querySelector('.modal-editor');
-            if (btnEdit) btnEdit.remove();
-            if (modalEdit) modalEdit.remove();
-
-            const htmlContent = "<!DOCTYPE html>\n" + docClone.outerHTML;
-            const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8;' });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = 'thiep_20_10_chuc_mung.html';
-            link.click();
         }
     </script>
 </body>
