@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thiệp Chúc Mừng 20/10 - Phương Thảo</title>
+    <title>gd mobi -> Hanye</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,42 +27,42 @@
             padding: 20px;
         }
 
-        /* --- TRANG 1: PHONG THƯ --- */
+        /* --- TRANG 1: PHONG THƯ (ĐÃ TĂNG KÍCH THƯỚC TO NỔI BẬT) --- */
         #page-1 {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             width: 100%;
-            max-width: 500px;
+            max-width: 600px;
             text-align: center;
             transition: all 0.6s ease;
         }
 
         .envelope-title {
             font-family: 'Dancing Script', cursive;
-            font-size: 2.8rem;
+            font-size: 3.6rem;
             color: #e11d48;
-            margin-bottom: 35px;
+            margin-bottom: 40px;
             font-weight: 700;
         }
 
-        /* Envelope CSS */
+        /* Envelope CSS (Kích thước to chuẩn đẹp) */
         .envelope-wrapper {
             position: relative;
-            width: 280px;
-            height: 190px;
+            width: 420px;
+            height: 285px;
             background-color: #f472b6;
-            border: 2px solid #2d3748;
-            border-radius: 6px;
+            border: 3px solid #2d3748;
+            border-radius: 8px;
             cursor: pointer;
-            box-shadow: 0 15px 25px rgba(225, 29, 72, 0.15);
+            box-shadow: 0 20px 35px rgba(225, 29, 72, 0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .envelope-wrapper:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 30px rgba(225, 29, 72, 0.25);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 40px rgba(225, 29, 72, 0.3);
         }
 
         /* Fold lines */
@@ -73,12 +73,12 @@
             left: 0;
             width: 0;
             height: 0;
-            border-left: 138px solid #f472b6;
-            border-right: 138px solid #f472b6;
-            border-bottom: 93px solid #fb7185;
-            border-top: 93px solid transparent;
+            border-left: 207px solid #f472b6;
+            border-right: 207px solid #f472b6;
+            border-bottom: 140px solid #fb7185;
+            border-top: 140px solid transparent;
             z-index: 2;
-            border-radius: 0 0 4px 4px;
+            border-radius: 0 0 6px 6px;
         }
 
         /* Flap lines drawing */
@@ -108,9 +108,9 @@
             left: 0;
             width: 0;
             height: 0;
-            border-left: 138px solid transparent;
-            border-right: 138px solid transparent;
-            border-top: 100px solid #f43f5e;
+            border-left: 207px solid transparent;
+            border-right: 207px solid transparent;
+            border-top: 150px solid #f43f5e;
             z-index: 3;
             transform-origin: top;
             transition: transform 0.5s ease;
@@ -119,10 +119,10 @@
         .envelope-flap::after {
             content: "";
             position: absolute;
-            top: -100px;
-            left: -138px;
-            width: 276px;
-            height: 100px;
+            top: -150px;
+            left: -207px;
+            width: 414px;
+            height: 150px;
             background: 
                 linear-gradient(to top right, transparent 49%, #2d3748 49.5%, #2d3748 51%, transparent 51.5%) left/50% 100% no-repeat,
                 linear-gradient(to top left, transparent 49%, #2d3748 49.5%, #2d3748 51%, transparent 51.5%) right/50% 100% no-repeat;
@@ -258,8 +258,37 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        /* RESPONSIVE DESIGN */
+        /* RESPONSIVE DESIGN FOR MOBILE */
         @media (max-width: 580px) {
+            .envelope-title {
+                font-size: 2.6rem;
+            }
+
+            .envelope-wrapper {
+                width: 310px;
+                height: 210px;
+            }
+
+            .envelope-wrapper::before {
+                border-left-width: 152px;
+                border-right-width: 152px;
+                border-bottom-width: 102px;
+                border-top-width: 102px;
+            }
+
+            .envelope-flap {
+                border-left-width: 152px;
+                border-right-width: 152px;
+                border-top-width: 110px;
+            }
+
+            .envelope-flap::after {
+                top: -110px;
+                left: -152px;
+                width: 304px;
+                height: 110px;
+            }
+
             #page-2 {
                 padding: 25px 20px;
             }
@@ -300,7 +329,7 @@
         <!-- HÀNG 1 -->
         <div class="row-item">
             <div class="row-text">
-                Chúc em ngày 20/10 này luôn vui vẻ và tràn đầy niềm vui và hạnh phúc nhaa =>
+                20/10 Chúc em luôn vui vẻ và tràn đầy niềm vui và hạnh phúc nhaa =>
             </div>
             <div class="row-photo-wrap" onclick="viewPhoto(document.getElementById('img1').src)">
                 <img id="img1" class="row-photo" src="anh1.png.jpg" alt="Ảnh 1">
@@ -321,7 +350,7 @@
         <div class="row-item">
             <div class="row-text">
                 Tâm sự mỏng:Anh trước đó đã quen với các đối xử như với 1 người em nên giờ là ni cảm giác thấy cứ có chút gì gì đấy rất lạ =))).<br>
-                Anh sẽ cố gắng ntn đó để có thể trở thành 1 bạn trai tốt =]dzxchgvjbj
+                Anh sẽ cố gắng ntn đó để có thể trở thành một người bạn trai tốt =]
             </div>
             <div class="row-photo-wrap" onclick="viewPhoto(document.getElementById('img3').src)">
                 <img id="img3" class="row-photo" src="anh3.png.webp" alt="Ảnh 3">
@@ -330,7 +359,7 @@
 
         <!-- PHẦN DƯỚI: THÔNG ĐIỆP BỔ SUNG & CHỮ KÝ -->
         <div class="bottom-container">
-            <div class="extra-love-text">Yeu PhwThao &lt;3</div>
+            <div class="extra-love-text">Yeu PhuongThao &lt;3</div>
             <div class="signature-text">DaiThang</div>
         </div>
     </div>
