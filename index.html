@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiệp Chúc Mừng 20/10</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #fff0f3 0%, #ffe4e6 50%, #fecdd3 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            color: #4a5568;
+            padding: 20px;
+        }
+
+        /* --- TRANG 1: PHONG THƯ --- */
+        #page-1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            transition: all 0.6s ease;
+        }
+
+        .envelope-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            color: #e11d48;
+            margin-bottom: 35px;
+            font-weight: 700;
+        }
+
+        /* Envelope CSS */
+        .envelope-wrapper {
+            position: relative;
+            width: 280px;
+            height: 190px;
+            background-color: #f472b6;
+            border: 2px solid #2d3748;
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 0 15px 25px rgba(225, 29, 72, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .envelope-wrapper:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px rgba(225, 29, 72, 0.25);
+        }
+
+        /* Fold lines */
+        .envelope-wrapper::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 138px solid #f472b6;
+            border-right: 138px solid #f472b6;
+            border-bottom: 93px solid #fb7185;
+            border-top: 93px solid transparent;
+            z-index: 2;
+            border-radius: 0 0 4px 4px;
+        }
+
+        /* Flap lines drawing */
+        .envelope-lines {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .envelope-lines::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(to bottom right, transparent 49.2%, #2d3748 49.5%, #2d3748 50.5%, transparent 50.8%) left/50% 100% no-repeat,
+                linear-gradient(to bottom left, transparent 49.2%, #2d3748 49.5%, #2d3748 50.5%, transparent 50.8%) right/50% 100% no-repeat;
+        }
+
+        /* Top Flap */
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 138px solid transparent;
+            border-right: 138px solid transparent;
+            border-top: 100px solid #f43f5e;
+            z-index: 3;
+            transform-origin: top;
+            transition: transform 0.5s ease;
+        }
+
+        .envelope-flap::after {
+            content: "";
+            position: absolute;
+            top: -100px;
+            left: -138px;
+            width: 276px;
+            height: 100px;
+            background: 
+                linear-gradient(to top right, transparent 49%, #2d3748 49.5%, #2d3748 51%, transparent 51.5%) left/50% 100% no-repeat,
+                linear-gradient(to top left, transparent 49%, #2d3748 49.5%, #2d3748 51%, transparent 51.5%) right/50% 100% no-repeat;
+        }
+
+        /* --- TRANG 2: NỘI DUNG LÁ THƯ --- */
+        #page-2 {
+            display: none;
+            width: 100%;
+            max-width: 680px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 35px;
+            box-shadow: 0 15px 35px rgba(225, 29, 72, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .letter-recipient {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: #be123c;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        /* 3 Rows Layout */
+        .row-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+
+        .row-item:last-child {
+            margin-bottom: 25px;
+        }
+
+        /* Ruled lines for text writing area */
+        .row-text {
+            flex: 1;
+            font-size: 1.05rem;
+            line-height: 34px;
+            color: #334155;
+            font-weight: 600;
+            background: repeating-linear-gradient(
+                transparent,
+                transparent 33px,
+                #f3d5b5 33px,
+                #f3d5b5 34px
+            );
+            padding: 2px 8px;
+            border-radius: 2px;
+            min-height: 100px;
+        }
+
+        /* Polaroid Photo (Slightly tilted) */
+        .row-photo-wrap {
+            flex-shrink: 0;
+            width: 150px;
+            background: #ffffff;
+            padding: 10px 10px 25px 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .row-item:nth-child(1) .row-photo-wrap { transform: rotate(-3deg); }
+        .row-item:nth-child(2) .row-photo-wrap { transform: rotate(3deg); }
+        .row-item:nth-child(3) .row-photo-wrap { transform: rotate(-2deg); }
+
+        .row-photo-wrap:hover {
+            transform: scale(1.05) rotate(0deg) !important;
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+            z-index: 10;
+        }
+
+        .row-photo {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 2px;
+            display: block;
+        }
+
+        /* Signature */
+        .signature-container {
+            text-align: right;
+            margin-top: 25px;
+            padding-top: 15px;
+        }
+
+        .signature-text {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.6rem;
+            color: #be123c;
+            display: inline-block;
+        }
+
+        /* LIGHTBOX MODAL */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* FLOATING EDIT BUTTON */
+        .btn-edit-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #be123c;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(190, 18, 60, 0.3);
+            opacity: 0.6;
+            transition: all 0.3s ease;
+            z-index: 90;
+        }
+
+        .btn-edit-float:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        /* EDITOR MODAL */
+        .modal-editor {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 101;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .editor-content {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 550px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .editor-content h3 {
+            margin-bottom: 15px;
+            color: #be123c;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #475569;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 60px;
+        }
+
+        .btn-action {
+            background: #be123c;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn-export {
+            background: #059669;
+            margin-top: 8px;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 580px) {
+            #page-2 {
+                padding: 25px 20px;
+            }
+
+            .row-item {
+                flex-direction: column-reverse;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .row-photo-wrap {
+                width: 160px;
+            }
+
+            .signature-container {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TRANG 1: MÀN HÌNH MỞ ĐẦU -->
+    <div id="page-1">
+        <div class="envelope-title">Đố dám mở đó :P</div>
+        <div class="envelope-wrapper" onclick="openLetter()">
+            <div class="envelope-lines"></div>
+            <div class="envelope-flap"></div>
+        </div>
+    </div>
+
+    <!-- TRANG 2: NỘI DUNG LÁ THƯ -->
+    <div id="page-2">
+        <div class="letter-recipient" id="disp-recipient">To ➔ Người Phụ Nữ Tuyệt Vời</div>
+
+        <!-- HÀNG 1 -->
+        <div class="row-item">
+            <div class="row-text" id="disp-msg1">
+                Chúc bạn luôn giữ trọn nụ cười rạng rỡ và niềm vui ngập tràn trong từng khoảnh khắc của cuộc sống.
+            </div>
+            <div class="row-photo-wrap" onclick="viewPhoto(document.getElementById('disp-img1').src)">
+                <img id="disp-img1" class="row-photo" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=80" alt="Ảnh 1">
+            </div>
+        </div>
+
+        <!-- HÀNG 2 -->
+        <div class="row-item">
+            <div class="row-text" id="disp-msg2">
+                Mong rằng mỗi ngày mới trôi qua đều mang đến cho bạn những điều ngọt ngào, may mắn và bình yên nhất.
+            </div>
+            <div class="row-photo-wrap" onclick="viewPhoto(document.getElementById('disp-img2').src)">
+                <img id="disp-img2" class="row-photo" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80" alt="Ảnh 2">
+            </div>
+        </div>
+
+        <!-- HÀNG 3 -->
+        <div class="row-item">
+            <div class="row-text" id="disp-msg3">
+                Cảm ơn bạn đã luôn xuất hiện và làm cho thế giới xung quanh trở nên thật rực rỡ và xinh đẹp!
+            </div>
+            <div class="row-photo-wrap" onclick="viewPhoto(document.getElementById('disp-img3').src)">
+                <img id="disp-img3" class="row-photo" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=500&q=80" alt="Ảnh 3">
+            </div>
+        </div>
+
+        <!-- CHỮ KÝ -->
+        <div class="signature-container">
+            <div class="signature-text" id="disp-signature">Your Signature</div>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX XEM ẢNH -->
+    <div class="lightbox" id="lightbox" onclick="this.style.display='none'">
+        <img id="lightbox-img" src="" alt="Zoom Photo">
+    </div>
+
+    <!-- NÚT SỬA NỘI DUNG -->
+    <button class="btn-edit-float" onclick="openEditor()">Sửa nội dung</button>
+
+    <!-- FORM CHỈNH SỬA & XUẤT FILE -->
+    <div class="modal-editor" id="modal-editor">
+        <div class="editor-content">
+            <h3>Tùy Chỉnh Nội Dung Thiệp</h3>
+            
+            <div class="form-group">
+                <label>Tên Người Nhận (To ➔ ...)</label>
+                <input type="text" id="inp-recipient" value="Người Phụ Nữ Tuyệt Vời">
+            </div>
+
+            <div class="form-group">
+                <label>Lời nhắn 1</label>
+                <textarea id="inp-msg1">Chúc bạn luôn giữ trọn nụ cười rạng rỡ và niềm vui ngập tràn trong từng khoảnh khắc của cuộc sống.</textarea>
+                <label style="margin-top:4px;">Ảnh 1</label>
+                <input type="file" accept="image/*" onchange="handleImageUpload(this, 'disp-img1')">
+            </div>
+
+            <div class="form-group">
+                <label>Lời nhắn 2</label>
+                <textarea id="inp-msg2">Mong rằng mỗi ngày mới trôi qua đều mang đến cho bạn những điều ngọt ngào, may mắn và bình yên nhất.</textarea>
+                <label style="margin-top:4px;">Ảnh 2</label>
+                <input type="file" accept="image/*" onchange="handleImageUpload(this, 'disp-img2')">
+            </div>
+
+            <div class="form-group">
+                <label>Lời nhắn 3</label>
+                <textarea id="inp-msg3">Cảm ơn bạn đã luôn xuất hiện và làm cho thế giới xung quanh trở nên thật rực rỡ và xinh đẹp!</textarea>
+                <label style="margin-top:4px;">Ảnh 3</label>
+                <input type="file" accept="image/*" onchange="handleImageUpload(this, 'disp-img3')">
+            </div>
+
+            <div class="form-group">
+                <label>Chữ ký người gửi</label>
+                <input type="text" id="inp-signature" value="Your Signature">
+            </div>
+
+            <button class="btn-action" onclick="applyChanges()">Áp Dụng Thay Đổi</button>
+            <button class="btn-action btn-export" onclick="exportHTML()">Tải File HTML Hoàn Chỉnh</button>
+            <button class="btn-action" style="background:#64748b; margin-top:6px;" onclick="closeEditor()">Đóng</button>
+        </div>
+    </div>
+
+    <script>
+        // Mở thư
+        function openLetter() {
+            document.getElementById('page-1').style.display = 'none';
+            document.getElementById('page-2').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Xem ảnh phóng to
+        function viewPhoto(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+
+        // Mở / Đóng bảng chỉnh sửa
+        function openEditor() {
+            document.getElementById('modal-editor').style.display = 'flex';
+        }
+
+        function closeEditor() {
+            document.getElementById('modal-editor').style.display = 'none';
+        }
+
+        // Đọc file ảnh chuyển thành Base64
+        function handleImageUpload(input, targetImgId) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById(targetImgId).src = e.target.result;
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        // Áp dụng nội dung vừa nhập vào giao diện
+        function applyChanges() {
+            document.getElementById('disp-recipient').innerText = "To ➔ " + document.getElementById('inp-recipient').value;
+            document.getElementById('disp-msg1').innerText = document.getElementById('inp-msg1').value;
+            document.getElementById('disp-msg2').innerText = document.getElementById('inp-msg2').value;
+            document.getElementById('disp-msg3').innerText = document.getElementById('inp-msg3').value;
+            document.getElementById('disp-signature').innerText = document.getElementById('inp-signature').value;
+            closeEditor();
+        }
+
+        // Xuất file HTML hoàn chỉnh
+        function exportHTML() {
+            applyChanges();
+            
+            // Xóa nút sửa nội dung và modal trước khi xuất HTML
+            const docClone = document.documentElement.cloneNode(true);
+            const btnEdit = docClone.querySelector('.btn-edit-float');
+            const modalEdit = docClone.querySelector('.modal-editor');
+            if (btnEdit) btnEdit.remove();
+            if (modalEdit) modalEdit.remove();
+
+            const htmlContent = "<!DOCTYPE html>\n" + docClone.outerHTML;
+            const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'thiep_20_10_chuc_mung.html';
+            link.click();
+        }
+    </script>
+</body>
+</html>
